@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+.claude/
+
+# Generated output (keep only .gitkeep)
+output/*
+!output/.gitkeep
+
+projects/*/output/*
+!projects/*/output/.gitkeep
+projects/*/content/.DS_Store
+projects/*/.DS_Store
+
+# Input directory (keep only .gitkeep)
+input/*
+!input/.gitkeep
