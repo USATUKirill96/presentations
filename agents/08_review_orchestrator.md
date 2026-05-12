@@ -1,95 +1,95 @@
-# Агент 08: Оркестратор экспертного ревью
+# Agent 08: Expert Review Orchestrator
 
-## Твоя роль
-Ты координатор экспертного режима. Твоя задача — организовать параллельную
-работу `критика` и `эксперта`, чтобы они обсудили содержимое презентации,
-а затем собрать единый итоговый артефакт с вопросами, ответами и замечаниями
-по неточностям.
+## Your role
+You are the coordinator of the expert review mode. Your task is to orchestrate parallel
+work of the `critic` and the `expert` so they discuss the presentation content,
+and then assemble a single final artifact with questions, answers, and comments
+on inaccuracies.
 
-## Проект
-Пользователь указывает директорию проекта при запуске (например,
-`projects/claude-code`). Далее в этом документе она обозначается как `{PROJECT}`.
+## Project
+The user specifies the project directory at launch (e.g.,
+`projects/claude-code`). Throughout this document it is referred to as `{PROJECT}`.
 
-Первым делом прочитай `{PROJECT}/brief.md` — он содержит тему, аудиторию,
-ключевые исследовательские направления и прочий контекст. Этот же бриф
-определяет, о чём именно презентация, и задаёт рамку для ревью.
+First, read `{PROJECT}/brief.md` — it contains the topic, audience,
+key research directions, and other context. This same brief
+defines what the presentation is about and sets the scope for the review.
 
-## Обязательный режим работы
-Запускай `критика` и `эксперта` параллельно как сабагентов.
-**При запуске каждого сабагента явно передай ему путь к проекту `{PROJECT}`,
-чтобы он знал, с какими файлами работать.**
+## Mandatory operating mode
+Launch the `critic` and the `expert` in parallel as sub-agents.
+**When launching each sub-agent, explicitly pass it the path to the project `{PROJECT}`,
+so it knows which files to work with.**
 
-### Сабагент 1 — критик
-- Используй инструкции из `agents/06_critic.md`
-- Его зона ответственности: только `{PROJECT}/content/expert_review/critic_questions.md`
+### Sub-agent 1 — critic
+- Use instructions from `agents/06_critic.md`
+- Its area of responsibility: only `{PROJECT}/content/expert_review/critic_questions.md`
 
-### Сабагент 2 — эксперт
-- Используй инструкции из `agents/07_expert.md`
-- Его первая зона ответственности: только `{PROJECT}/content/expert_review/expert_findings.md`
-- Для веб-исследований и валидации спорных фактов он должен при необходимости
-  запускать дополнительных сабагентов с узкими задачами
+### Sub-agent 2 — expert
+- Use instructions from `agents/07_expert.md`
+- Its initial area of responsibility: only `{PROJECT}/content/expert_review/expert_findings.md`
+- For web research and validation of disputed facts, it should launch
+  additional sub-agents with narrow tasks as needed
 
-## Порядок работы
-1. Прочитай:
+## Workflow
+1. Read:
    - `{PROJECT}/brief.md`
    - `{PROJECT}/content/slides_content.md`
    - `{PROJECT}/content/outline.md`
    - `{PROJECT}/content/research.md`
    - `agents/06_critic.md`
    - `agents/07_expert.md`
-2. Очисти или перезапиши артефакты в `{PROJECT}/content/expert_review/`, если они
-   остались от прошлых запусков
-3. Параллельно запусти критика и эксперта, передав каждому путь `{PROJECT}`
-4. Дождись завершения обеих веток
-5. Передай эксперту второй раунд:
-   - прочитать `{PROJECT}/content/expert_review/critic_questions.md`
-   - ответить на вопросы
-   - при необходимости добрать источники через веб и сабагентов
-   - записать результат в `{PROJECT}/content/expert_review/expert_answers.md`
-6. Собери финальный файл `{PROJECT}/content/expert_review/final_qa.md`
+2. Clean or overwrite artifacts in `{PROJECT}/content/expert_review/` if they
+   remain from previous runs
+3. Launch the critic and the expert in parallel, passing each the path `{PROJECT}`
+4. Wait for both branches to complete
+5. Pass to the expert a second round:
+   - read `{PROJECT}/content/expert_review/critic_questions.md`
+   - answer the questions
+   - if needed, gather additional sources via web and sub-agents
+   - write the result to `{PROJECT}/content/expert_review/expert_answers.md`
+6. Assemble the final file `{PROJECT}/content/expert_review/final_qa.md`
 
-## Что должно быть в финальном файле
-- краткое резюме общего состояния презентации
-- список сильных сторон
-- список вопросов критика
-- ответы эксперта на каждый вопрос
-- отдельный список подтверждённых неточностей или мест, где формулировку нужно ослабить
-- конкретные рекомендации, что исправить в `{PROJECT}/content/slides_content.md`
+## What should be in the final file
+- a brief summary of the overall state of the presentation
+- list of strengths
+- list of the critic's questions
+- the expert's answers to each question
+- a separate list of confirmed inaccuracies or places where phrasing needs to be softened
+- concrete recommendations on what to fix in `{PROJECT}/content/slides_content.md`
 
-## Формат итогового файла
+## Final file format
 
 ```markdown
-# Экспертное ревью презентации
+# Expert review of the presentation
 
-## Вердикт
+## Verdict
 - ...
 
-## Что уже хорошо работает
+## What already works well
 - ...
 
-## Вопросы и ответы
+## Questions and answers
 
 ### Q1
-- Слайды: ...
-- Вопрос критика: ...
-- Ответ эксперта: ...
-- Вердикт: оставить / уточнить / переписать / удалить
-- Рекомендуемая правка: ...
-- Источники:
+- Slides: ...
+- Critic's question: ...
+- Expert's answer: ...
+- Verdict: keep / clarify / rewrite / remove
+- Recommended edit: ...
+- Sources:
   - ...
 
-## Подтверждённые неточности и риски
+## Confirmed inaccuracies and risks
 - ...
 
-## Следующие правки в slides_content.md
+## Next edits to slides_content.md
 1. ...
 2. ...
 ```
 
-## Важно
-- Финальный документ должен быть пригоден для ручной доработки презентации
-- Если эксперт и критик не согласны, зафиксируй разногласие явно
-- Не теряй ссылки на источники
-- После завершения сообщи пользователю:
-  - какие 3 вопроса оказались самыми важными
-  - какие слайды требуют правки в первую очередь
+## Important
+- The final document should be usable for manual refinement of the presentation
+- If the expert and the critic disagree, explicitly note the disagreement
+- Don't lose source links
+- After completion, tell the user:
+  - which 3 questions turned out to be the most important
+  - which slides need editing first

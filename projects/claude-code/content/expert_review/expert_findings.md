@@ -1,59 +1,59 @@
-# Находки эксперта
+# Expert Findings
 
-## Подтверждённые сильные тезисы
-- Слайд 3: тезис про `85% разработчиков регулярно используют AI` подтверждается JetBrains Developer Ecosystem Survey 2025. Это сильный вход в доклад, если оставить именно формулировку про использование AI-инструментов, а не делать из неё вывод про зрелость практик.
-- Слайды 4-7: сдвиг от `prompt engineering` к `context engineering` хорошо опирается на Anthropic. Сам тезис про важность управления контекстом подтверждается напрямую; он звучит убедительно и современно.
-- Слайды 6 и 9: наличие персистентных project-level инструкций у крупных инструментов подтверждается официальной документацией. У Claude Code это `CLAUDE.md`, у Cursor это `.cursor/rules`, у GitHub Copilot это `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, а также agent-instruction файлы `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`.
-- Слайд 11: идея разделять исследование и реализацию подтверждается официальной документацией Claude Code и Cursor. У Claude Code есть явный `Plan Mode`; у Cursor есть `Ask` как read-only режим для изучения и планирования.
-- Слайды 18 и 20: тезис `AI усиливает уже существующие сильные и слабые стороны` хорошо поддержан DORA 2025. Это один из самых надёжных каркасных выводов во всей презентации.
+## Confirmed Strong Theses
+- Slide 3: the thesis about `85% of developers regularly use AI` is confirmed by the JetBrains Developer Ecosystem Survey 2025. This is a strong entry to the talk if the formulation is kept about AI tool usage, rather than drawing a conclusion about practice maturity from it.
+- Slides 4-7: the shift from `prompt engineering` to `context engineering` is well supported by Anthropic. The thesis itself about the importance of context management is directly confirmed; it sounds convincing and modern.
+- Slides 6 and 9: the existence of persistent project-level instructions in major tools is confirmed by official documentation. For Claude Code it's `CLAUDE.md`, for Cursor it's `.cursor/rules`, for GitHub Copilot it's `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, as well as agent-instruction files `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`.
+- Slide 11: the idea of separating research and implementation is confirmed by official documentation from Claude Code and Cursor. Claude Code has an explicit `Plan Mode`; Cursor has `Ask` as a read-only mode for study and planning.
+- Slides 18 and 20: the thesis `AI amplifies existing strengths and weaknesses` is well supported by DORA 2025. This is one of the most reliable framing conclusions in the entire presentation.
 
-## Что требует оговорки
-- Слайд 4: `AI помнит конвенции проекта между сессиями`
-  - Почему: в таком виде звучит как внутренняя память модели. По источникам это достигается не "памятью" модели, а внешними механизмами: `CLAUDE.md`, project rules, custom instructions, `AGENTS.md`.
-  - Как безопаснее сформулировать: `Проектные конвенции можно сделать доступными в каждой новой сессии через repo-level инструкции и memory files`.
+## What Requires a Caveat
+- Slide 4: `AI remembers project conventions between sessions`
+  - Why: as stated, this sounds like internal model memory. According to sources, this is achieved not by model "memory" but by external mechanisms: `CLAUDE.md`, project rules, custom instructions, `AGENTS.md`.
+  - How to phrase more safely: `Project conventions can be made available in every new session through repo-level instructions and memory files`.
 
-- Слайд 7: `15-30 строк — идеальный размер. 500 строк — контрпродуктивно`
-  - Почему: это похоже на полезную эвристику, но не на подтверждённый численный факт. Cursor пишет, что хорошие rules должны быть focused and actionable и рекомендует держать rules до 500 строк; Anthropic пишет про конечный attention budget. Бумага `arXiv:2602.14690` подтверждает важность context files, но не даёт нормы `15-30`.
-  - Как безопаснее сформулировать: `Контекстный файл должен быть компактным и высокосигнальным; длинные файлы быстро теряют пользу`.
+- Slide 7: `15-30 lines — ideal size. 500 lines — counterproductive`
+  - Why: this looks like a useful heuristic, but not a confirmed numerical fact. Cursor writes that good rules should be focused and actionable and recommends keeping rules under 500 lines; Anthropic writes about finite attention budget. The paper `arXiv:2602.14690` confirms the importance of context files but does not provide a `15-30` norm.
+  - How to phrase more safely: `The context file should be compact and high-signal; long files quickly lose utility`.
 
-- Слайд 9: блок про `хуки в действии: Claude Code и Cursor`
-  - Почему: пример с Claude Code действительно про hooks. Пример с Cursor — это rule, то есть системная инструкция в контексте, а не детерминированный хук. Это важное смешение понятий, потому что на предыдущем слайде они специально разведены.
-  - Как безопаснее сформулировать: либо переименовать слайд в `Автоматизация и правила в действии`, либо оставить на нём только Claude Code как пример хуков, а Cursor вынести как пример project rules.
+- Slide 9: block about `hooks in action: Claude Code and Cursor`
+  - Why: the Claude Code example is indeed about hooks. The Cursor example is a rule, i.e., a system instruction in context, not a deterministic hook. This is an important conflation of concepts because the previous slide specifically differentiated them.
+  - How to phrase more safely: either rename the slide to `Automation and rules in action`, or leave only Claude Code as a hook example, and move Cursor out as an example of project rules.
 
-- Слайд 16: `Работает в Claude Code, Cursor, VS Code, Windsurf — настроил раз`
-  - Почему: протокол действительно кросс-клиентный, но настройка, разрешения, transport и UX всё равно зависят от конкретного host-клиента. Фраза `настроил раз` завышает степень переносимости.
-  - Как безопаснее сформулировать: `MCP снижает стоимость интеграции между клиентами и серверами, но настройка и permissions всё равно зависят от конкретного инструмента`.
+- Slide 16: `Works in Claude Code, Cursor, VS Code, Windsurf — configure once`
+  - Why: the protocol is indeed cross-client, but configuration, permissions, transport, and UX still depend on the specific host client. The phrase `configure once` overstates the degree of portability.
+  - How to phrase more safely: `MCP reduces integration cost between clients and servers, but configuration and permissions still depend on the specific tool`.
 
-- Слайд 17: `Copilot: reusable prompts`
-  - Почему: идея подтверждается, но у GitHub Copilot prompt files сейчас находятся в `public preview`, а не выглядят как настолько же зрелый и устоявшийся механизм, как slash commands у Claude Code.
-  - Как безопаснее сформулировать: `Copilot: custom instructions + prompt files (public preview)`.
+- Slide 17: `Copilot: reusable prompts`
+  - Why: the idea is confirmed, but GitHub Copilot prompt files are currently in `public preview` and don't look like a mechanism as mature and established as slash commands in Claude Code.
+  - How to phrase more safely: `Copilot: custom instructions + prompt files (public preview)`.
 
-- Слайд 18: `Git worktrees ... никаких конфликтов`
-  - Почему: worktrees хорошо изолируют файловое состояние, но не изолируют БД, Docker, кэши, внешние сервисы и не отменяют merge conflicts при последующей интеграции.
-  - Как безопаснее сформулировать: `Git worktrees дают изоляцию рабочего дерева и сильно упрощают параллельные сессии, но не устраняют все конфликты автоматически`.
+- Slide 18: `Git worktrees ... no conflicts`
+  - Why: worktrees isolate file state well, but do not isolate DB, Docker, caches, external services, and do not eliminate merge conflicts at subsequent integration.
+  - How to phrase more safely: `Git worktrees provide workspace isolation and greatly simplify parallel sessions, but do not eliminate all conflicts automatically`.
 
-- Слайд 20: `METR (2025) ... обновление (2026): на 18% быстрее`
-  - Почему: февральский METR update действительно показывает оценку `-18%` для части выборки, но сами авторы пишут, что из-за selection effects сигнал слабый и размер speedup ненадёжен. Подавать это как просто "новый результат" слишком сильно.
-  - Как безопаснее сформулировать: `METR 2025 зафиксировали 19% slowdown в раннем сетапе; в апдейте 2026 появились слабые признаки speedup, но авторы прямо предупреждают о сильных selection effects`.
+- Slide 20: `METR (2025) ... update (2026): 18% faster`
+  - Why: the February METR update does show an estimate of `-18%` for part of the sample, but the authors themselves write that due to selection effects the signal is weak and the speedup size is unreliable. Presenting this as simply a "new result" is too strong.
+  - How to phrase more safely: `METR 2025 recorded a 19% slowdown in an early setup; in the 2026 update, weak signs of speedup appeared, but the authors explicitly warn of strong selection effects`.
 
-## Возможные неточности
-- Слайд 3: `41% кода уже генерируется AI`
-  - Что вызывает сомнение: в исследовательских и официальных источниках из текущего набора нет надёжного первичного подтверждения именно этой цифры как общеиндустриального факта. В поиске она ходит в пересказах и блогах, но не в устойчивом первоисточнике уровня JetBrains, DORA, METR, Anthropic или GitHub Docs.
-  - Что проверить дальше: либо найти первичный источник и честно ограничить scope, либо убрать цифру и заменить на более безопасный тезис про широкое проникновение AI в ежедневную разработку.
+## Possible Inaccuracies
+- Slide 3: `41% of code is already generated by AI`
+  - What raises doubt: in research and official sources from the current set, there is no reliable primary confirmation of exactly this figure as an industry-wide fact. In search it circulates in retellings and blogs, but not in a stable primary source at the level of JetBrains, DORA, METR, Anthropic, or GitHub Docs.
+  - What to verify further: either find a primary source and honestly limit the scope, or remove the number and replace with a safer thesis about broad AI penetration in daily development.
 
-- Слайд 16: `97 млн скачиваний SDK/мес, 10 000+ серверов`
-  - Что вызывает сомнение: в текущем проходе это подтверждается только через вторичный источник (`Pento.ai`). У официальных материалов MCP я нашёл подтверждение активного роста, запуск официального Registry и широкое распространение, но не надёжную первичную валидацию этих двух чисел.
-  - Что проверить дальше: либо явно пометить как оценку стороннего рынка, либо убрать числа и оставить качественный тезис про быстрый рост экосистемы.
+- Slide 16: `97M SDK downloads/month, 10,000+ servers`
+  - What raises doubt: in the current pass, this is confirmed only through a secondary source (`Pento.ai`). From official MCP materials, I found confirmation of active growth, launch of the official Registry, and widespread adoption, but not reliable primary validation of these two numbers.
+  - What to verify further: either explicitly mark as a third-party market estimate, or remove the numbers and keep the qualitative thesis about rapid ecosystem growth.
 
-- Слайд 17: `5-10 команд в проекте = быстрый onboarding + живая документация`
-  - Что вызывает сомнение: первая половина — разумный инженерный вывод, но численный порог `5-10` и implied effect на onboarding выглядят как авторская эвристика, а не подтверждённый факт.
-  - Что проверить дальше: подавать как практику или рекомендацию, а не как будто это измеренный результат.
+- Slide 17: `5-10 commands in a project = fast onboarding + living documentation`
+  - What raises doubt: the first half is a reasonable engineering conclusion, but the numerical threshold `5-10` and the implied effect on onboarding look like an author's heuristic rather than a confirmed fact.
+  - What to verify further: present as a practice or recommendation, not as if it's a measured result.
 
-- Слайд 18: `Writer/Reviewer — самый высокоROI-ный паттерн AI-разработки`
-  - Что вызывает сомнение: Lightspark и документация Anthropic поддерживают идею параллельных сессий и multi-agent workflows, но конкретное утверждение про `самый high-ROI` не выглядит количественно доказанным.
-  - Что проверить дальше: ослабить до `один из самых практичных паттернов` или явно подать как наблюдение из практики.
+- Slide 18: `Writer/Reviewer — the highest-ROI AI development pattern`
+  - What raises doubt: Lightspark and Anthropic documentation support the idea of parallel sessions and multi-agent workflows, but the specific claim about `the highest-ROI` doesn't appear quantitatively proven.
+  - What to verify further: weaken to `one of the most practical patterns` or explicitly present as an observation from practice.
 
-## Источники
+## Sources
 - JetBrains, `The State of Developer Ecosystem 2025`: https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/
 - Anthropic, `Effective context engineering for AI agents`: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
 - Anthropic Docs, `Manage Claude's memory`: https://docs.anthropic.com/en/docs/claude-code/memory

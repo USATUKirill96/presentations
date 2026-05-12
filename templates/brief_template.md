@@ -1,74 +1,74 @@
-# Бриф презентации
+# Presentation Brief
 
-## Тема
-[Основная тема презентации — одно предложение]
+## Topic
+[Main presentation topic — one sentence]
 
-## Подзаголовок
-[Уточнение темы или угол подачи]
+## Subtitle
+[Topic refinement or angle of delivery]
 
-## Целевая аудитория
-- **Кто они:** [роли, опыт, контекст]
-- **Уровень подготовки:** [начинающие / средний / продвинутый]
-- **Что они уже знают:** [что предполагается известным]
-- **Отношение к теме:** [заинтересованы / скептичны / нейтральны]
-- **Что они хотят получить:** [конкретику / вдохновение / инструкции / ...]
+## Target Audience
+- **Who they are:** [roles, experience, context]
+- **Skill level:** [beginner / intermediate / advanced]
+- **What they already know:** [assumed prior knowledge]
+- **Attitude toward the topic:** [interested / skeptical / neutral]
+- **What they want to get:** [specifics / inspiration / instructions / ...]
 
-## Параметры
-- **Продолжительность:** [XX минут]
-- **Количество слайдов:** [XX–YY]
-- **Основной язык:** [русский / английский / ...]
-- **Дополнительные языки:** [если нужен перевод — перечислить]
+## Parameters
+- **Duration:** [XX minutes]
+- **Number of slides:** [XX–YY]
+- **Primary language:** [Russian / English / ...]
+- **Additional languages:** [if translation is needed — list them]
 
-## Главная идея
-[Одно предложение — ключевой message, который слушатель унесёт с собой]
+## Core Message
+[One sentence — the key message the listener will take away]
 
-## Области исследования
+## Research Areas
 
-### Блок A: [Название]
-[Описание того, что нужно исследовать. Конкретные вопросы, подтемы.]
-1. [Подтема 1 — что именно найти, что проверить]
-2. [Подтема 2]
+### Block A: [Title]
+[Description of what needs to be researched. Specific questions, subtopics.]
+1. [Subtopic 1 — what exactly to find, what to verify]
+2. [Subtopic 2]
 3. [...]
 
-### Блок B: [Название]
+### Block B: [Title]
 1. [...]
 2. [...]
 
-### Блок C: [Название]
+### Block C: [Title]
 1. [...]
 2. [...]
 
-<!-- Добавь столько блоков, сколько нужно -->
+<!-- Add as many blocks as needed -->
 
-## Нарратив и структура
-- **Начало (hook):** [как захватить внимание — проблема, вопрос, провокация]
-- **Развитие:** [какую историю рассказываем, какой путь проходит слушатель]
-- **Кульминация:** [главный инсайт или момент "ага!"]
-- **Финал (CTA):** [к чему подвести, что слушатель должен сделать после]
+## Narrative & Structure
+- **Opening (hook):** [how to grab attention — problem, question, provocation]
+- **Development:** [what story we tell, what journey the listener takes]
+- **Climax:** [the main insight or "aha!" moment]
+- **Closing (CTA):** [what to lead to, what the listener should do after]
 
-## Обязательные типы слайдов
-<!-- Убери ненужные или добавь свои -->
-- Title slide (название, автор)
-- Agenda (план)
-- Problem/Hook (захват внимания)
-- Section dividers (разделители между блоками)
-- Content slides (основной контент)
-- Demo/Example slides (примеры, код)
+## Required Slide Types
+<!-- Remove unnecessary ones or add your own -->
+- Title slide (title, author)
+- Agenda (plan)
+- Problem/Hook (grabbing attention)
+- Section dividers (separators between blocks)
+- Content slides (main content)
+- Demo/Example slides (examples, code)
 - Comparison slides (❌ vs ✅)
-- Action items (конкретные шаги)
-- Q&A / Thank you (финал)
+- Action items (specific steps)
+- Q&A / Thank you (closing)
 
-## Голос и стиль
-- **Тон:** [уверенный / дружелюбный / академический / провокационный / ...]
-- **Язык:** [технический / разговорный / формальный / ...]
-- **Запрещено:** [слова, стили, приёмы которых избегать]
-- **Приветствуется:** [что использовать — числа, примеры, юмор, ...]
+## Voice & Style
+- **Tone:** [confident / friendly / academic / provocative / ...]
+- **Language:** [technical / conversational / formal / ...]
+- **Avoid:** [words, styles, techniques to steer clear of]
+- **Encourage:** [what to use — numbers, examples, humor, ...]
 
-## Дизайн
-- **Визуальный стиль:** [минималистичный / яркий / корпоративный / технологичный / ...]
-- **Бренд-гайдлайны:** [цвета, логотипы, шрифты если есть — или "на усмотрение дизайнера"]
-- **Особые пожелания:** [тёмная тема, конкретный стиль иллюстраций, ...]
+## Design
+- **Visual style:** [minimalist / vibrant / corporate / tech-oriented / ...]
+- **Brand guidelines:** [colors, logos, fonts if available — or "at designer's discretion"]
+- **Special requests:** [dark theme, specific illustration style, ...]
 
-## Дополнительные требования
-[Любые специфичные требования: конкретные примеры которые обязательно включить,
-темы которых избегать, ссылки на материалы, ограничения формата и т.д.]
+## Additional Requirements
+[Any specific requirements: specific examples that must be included,
+topics to avoid, links to materials, format constraints, etc.]
